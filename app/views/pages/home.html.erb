@@ -1,7 +1,20 @@
+<% if user_signed_in? %>
+	<div class="hero-unit">
+		<h1>Welcome Back!</h1>
+
+		<p>You are logged in already. Have fun.</p>
+
+		<p><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary btn-large" %></p>
+	</div>
+
+<% else %>
+
 <div class="hero-unit">
 	<h1>Welcome to OneMonthRails</h1>
 
 	<p>You have found the home page for <%= link_to "One Month Rails", "http://onemonthrails.com" %> application.</p>
 
-	<p><%= link_to "Sign Up Now!", "#", class: "btn btn-primary btn-large" %></p>
+	<p><%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large" %></p>
 </div>
+
+<% end %>
